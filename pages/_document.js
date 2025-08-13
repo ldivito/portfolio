@@ -3,7 +3,8 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   const meta = {
     title: 'Leandro di Vito Portfolio',
-    description: 'This is a portfolio of Leandro di Vito, a full-stack and WordPress developer.',
+    description:
+      'This is a portfolio of Leandro di Vito, a full-stack and WordPress developer.',
     image: ''
   }
 

@@ -1,7 +1,10 @@
-const { promises: fs } = require('fs')
-const path = require('path')
-const RSS = require('rss')
-const matter = require('gray-matter')
+import { promises as fs } from 'fs'
+import path from 'path'
+import RSS from 'rss'
+import matter from 'gray-matter'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function generate() {
   const feed = new RSS({
@@ -34,7 +37,7 @@ async function generate() {
 
   allPosts.sort((a, b) => new Date(b.date) - new Date(a.date))
   allPosts.forEach((post) => {
-      feed.item(post)
+    feed.item(post)
   })
   await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
 }
